@@ -49,6 +49,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = "PasswordGeneratorApp.urls"
@@ -121,6 +122,8 @@ STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Add your static files directory
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Collect static files here
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ALLOWED_HOSTS = ["PasswordGeneratorApp.vercel.app"]
